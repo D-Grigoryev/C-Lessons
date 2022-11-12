@@ -20,6 +20,4 @@ while(distance>10){
         count++;
     }
 }
-Console.Write("собака пробежит ");
-Console.Write(count);
-Console.WriteLine(" раз");
+Console.Write("собака пробежит " + count + " раз");
