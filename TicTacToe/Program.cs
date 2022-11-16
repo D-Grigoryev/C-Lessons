@@ -3,6 +3,7 @@
 
 char cross = 'X'; 
 char zero = 'O';
+
 int fieldSize = 3;
 
 int gameMode=0;
@@ -17,15 +18,23 @@ gameMode=Convert.ToInt32(Console.ReadLine());
 InitField();
 PrintField();
 
-while(!CheckGameEnd()){
+while(true){
     if(gameMode==0){
+        if (!CheckGameEnd()){
         HumanTurnCross();
+        }else break;
+         if (!CheckGameEnd()){
         HumanTurnZero();
+        }else break;
+         
     }
     else if (gameMode==1){
+       if (!CheckGameEnd()){
         HumanTurnCross();
-        СomputerTurn ();
-        
+        }else break;
+         if (!CheckGameEnd()){
+         СomputerTurn ();
+        }else break;
     }
 }
 
@@ -88,7 +97,7 @@ void HumanTurnZero (){
 Console.WriteLine("Ход ноликов");
 Console.Write("Введите номер клетки - ");
 char userTurn = Convert.ToChar(Console.ReadLine());
-   bool validNumber = false;
+bool validNumber = false;
 Console.WriteLine(userTurn);
         if (Validator(userTurn)){
         for (int x=0; x<fieldSize;x++){
@@ -137,10 +146,8 @@ bool validNumber = false;
 
 bool CheckGameEnd(){  
                 //проверка на ничью
-            // if (!checkDrow(field)){
-            //     Console.WriteLine("GAME OVER - Ничья");
-            //     return true;
-            // }
+
+         
             for (int i = 0; i < fieldSize; i++) {
             
              if (checkLine(i, 0, 0, 1, cross)) {
@@ -179,7 +186,10 @@ bool CheckGameEnd(){
          }
            
          }
-
+                if (!checkDrow(field)){
+                Console.WriteLine("GAME OVER - Ничья");
+                return true;
+            }
          return false;
      }
 
@@ -192,15 +202,16 @@ bool checkLine(int start_x, int start_y, int dx, int dy, char sign) {
      }
 
 bool checkDrow(char [ , ] arr){
-            foreach (char c in field){   
-                    if (!c.Equals(cross) || !c.Equals(zero)){
-                    return true; 
+            foreach (char c in arr){    
+                    if (!c.Equals(cross)  ){
+                        if (!c.Equals(zero)){
+                            return true;
+                        }
                 } 
         }
                  return false;
     }
-
-            
+        
 bool Validator (char str){
     foreach (char c in numbers){
         if (c.Equals(str)){
