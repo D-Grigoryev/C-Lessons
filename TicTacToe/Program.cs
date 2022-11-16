@@ -3,7 +3,6 @@
 
 char cross = 'X'; 
 char zero = 'O';
-char empty = '+';
 int fieldSize = 3;
 
 int gameMode=0;
@@ -17,7 +16,6 @@ Console.Write("Введите значение - ");
 gameMode=Convert.ToInt32(Console.ReadLine());
 InitField();
 PrintField();
-
 
 while(!CheckGameEnd()){
     if(gameMode==0){
@@ -40,6 +38,7 @@ void InitField (){
         }
     }
 }
+
 void PrintField (){
     Console.Clear();
     for (int i = 0; i <= fieldSize; i++) {
@@ -59,7 +58,6 @@ void PrintField (){
 }
 
 void HumanTurnCross (){
-    if (!CheckGameEnd()){
 Console.WriteLine("Ход крестиков");
 Console.Write("Введите номер клетки - ");
 char userTurn = Convert.ToChar(Console.ReadLine());
@@ -84,11 +82,9 @@ Console.WriteLine(userTurn);
         HumanTurnCross();
     }
     PrintField();  
-    }else Console.Write("");
 }
 
 void HumanTurnZero (){
-    if(!CheckGameEnd()){
 Console.WriteLine("Ход ноликов");
 Console.Write("Введите номер клетки - ");
 char userTurn = Convert.ToChar(Console.ReadLine());
@@ -113,14 +109,10 @@ Console.WriteLine(userTurn);
         HumanTurnZero();
     }
     PrintField();
-    
-    }else Console.Write("");
-
 }
 
 void СomputerTurn (){
    Console.WriteLine("Ход компьютера");
-    if (!CheckGameEnd()){
 string rnd = Convert.ToString(new Random().Next(1,10));
 char computerTurn = Convert.ToChar(rnd);
 bool validNumber = false;
@@ -141,69 +133,82 @@ bool validNumber = false;
          СomputerTurn();
     }
     PrintField();   
-    }else Console.Write("");
 }
 
-bool CheckGameEnd(){
-           
-           bool isEmpty=true;
-
-            for (int x=0; x<fieldSize;x++){
-              for (int y=0;y<fieldSize; y++){
-                 if(!field[x,y].Equals(cross)|| !field[x,y].Equals(zero)){
-                    isEmpty=true;
-                    break;
-                }else isEmpty=false;      
+bool CheckGameEnd(){  
+                //проверка на ничью
+            // if (!checkDrow(field)){
+            //     Console.WriteLine("GAME OVER - Ничья");
+            //     return true;
+            // }
+            for (int i = 0; i < fieldSize; i++) {
+            
+             if (checkLine(i, 0, 0, 1, cross)) {
+                 Console.WriteLine("GAME OVER - Победили Крестики");
+                 return true;
+             }
+             if (checkLine(i, 0, 0, 1, zero)) {
+                 Console.WriteLine("GAME OVER - Победили Нолики");
+                 return true;
+             }
+             
+             if (checkLine(0, i, 1, 0, cross)) {
+                 Console.WriteLine("GAME OVER - Победили Крестики");
+                 return true;
+             }
+             if (checkLine(0, i, 1, 0, zero)) {
+                Console.WriteLine("GAME OVER - Победили Нолики");
+                 return true;
+             }
+        
+             if (checkLine(0, 0, 1, 1, cross)) {
+                Console.WriteLine("GAME OVER - Победили Крестики");
+                return true;
             }
+             if (checkLine(0, 0, 1, 1, zero)) {
+                Console.WriteLine("GAME OVER - Победили Нолики");
+                return true;
+            }
+             if (checkLine(0, fieldSize - 1, 1, -1, cross)) {
+                Console.WriteLine("GAME OVER - Победили Крестики");
+                return true;
+            }
+             if (checkLine(0, fieldSize - 1, 1, -1, zero)) {
+                Console.WriteLine("GAME OVER - Победили Нолики");
+                return true;
          }
-        if (isEmpty==false){
-             Console.WriteLine("GAME OVER - Ничья");
-            return true;
+           
+         }
+
+         return false;
+     }
+
+bool checkLine(int start_x, int start_y, int dx, int dy, char sign) {
+         for (int i = 0; i < fieldSize; i++) {
+             if (field[start_x + i * dx, start_y + i * dy] != sign)
+                 return false;
+         }
+         return true;
+     }
+
+bool checkDrow(char [ , ] arr){
+            foreach (char c in field){   
+                    if (!c.Equals(cross) || !c.Equals(zero)){
+                    return true; 
+                } 
         }
-    
-           if(
-            //Проверка диагоналей
-            (field[0,0].Equals(cross)&&field[1,1].Equals(cross)&&field[2,2].Equals(cross))
-            || (field[0,2].Equals(cross)&&field[1,1].Equals(cross)&&field[2,0].Equals(cross))
-            //Проверка горизонталей
-            || (field[0,0].Equals(cross)&&field[0,1].Equals(cross)&&field[0,2].Equals(cross))
-            || (field[1,0].Equals(cross)&&field[1,1].Equals(cross)&&field[1,2].Equals(cross))
-            || (field[2,0].Equals(cross)&&field[2,1].Equals(cross)&&field[2,2].Equals(cross))
-            //Проверка вертикалей
-            || (field[0,0].Equals(cross)&&field[1,0].Equals(cross)&&field[2,0].Equals(cross))
-            || (field[0,1].Equals(cross)&&field[1,1].Equals(cross)&&field[2,1].Equals(cross))
-            || (field[0,2].Equals(cross)&&field[1,2].Equals(cross)&&field[2,2].Equals(cross))
-            ){
-            Console.WriteLine("GAME OVER - Победили Крестики");
-            return true;
-        }
-         if(
-            //Проверка диагоналей
-            (field[0,0].Equals(zero)&&field[1,1].Equals(zero)&&field[2,2].Equals(zero))
-            || (field[0,2].Equals(zero)&&field[1,1].Equals(zero)&&field[2,0].Equals(zero))
-            //Проверка горизонталей
-            || (field[0,0].Equals(zero)&&field[0,1].Equals(zero)&&field[0,2].Equals(zero))
-            || (field[1,0].Equals(zero)&&field[1,1].Equals(zero)&&field[1,2].Equals(zero))
-            || (field[2,0].Equals(zero)&&field[2,1].Equals(zero)&&field[2,2].Equals(zero))
-            //Проверка вертикалей
-            || (field[0,0].Equals(zero)&&field[1,0].Equals(zero)&&field[2,0].Equals(zero))
-            || (field[0,1].Equals(zero)&&field[1,1].Equals(zero)&&field[2,1].Equals(zero))
-            || (field[0,2].Equals(zero)&&field[1,2].Equals(zero)&&field[2,2].Equals(zero))
-            ){
-            Console.WriteLine("GAME OVER - Победили Нолики");
-            return true;
-        }
-        return false;
-}
-   
+                 return false;
+    }
+
+            
 bool Validator (char str){
     foreach (char c in numbers){
         if (c.Equals(str)){
             return true; 
-                }
-            }
+        }
+    }
             return false;
-         }
+}
     
 
 
@@ -213,3 +218,4 @@ bool Validator (char str){
    
 
 
+ 
