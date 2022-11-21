@@ -3,29 +3,29 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-Console.Write("Введите число от трех знаков: ");
-int number = Convert.ToInt32(Console.ReadLine());
-FindThirdNumber(number);
+    Console.Write("Введите число от трех знаков: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    FindThirdNumber(number);
 
-void FindThirdNumber(int num){
-	int result=0;
-    if (num>999){
-        while (num > 999){
-            num = num/10;
-            if (num>99 && num<999){
-                result=num %10;  
-                Console.WriteLine("Третий знак "+ number +" - "+result);
-            }
-        } 
-    } else if (num>99 && num<999 ){
-         result = num%10;
-         Console.WriteLine("Третий знак "+ number +" - "+result);
-    }
-    else if (num<100){ 
-    Console.WriteLine("В этом числе нет третьего знака");
-     }
+    void FindThirdNumber(int num){
+        int result=0;
+        if (num>999){
+            while (num > 999){
+                num = num/10;
+                if (num>99 && num<999){
+                    result=num %10;  
+                    Console.WriteLine("Третий знак "+ number +" - "+result);
+                }
+            } 
+        } else if (num>99 && num<999 ){
+            result = num%10;
+            Console.WriteLine("Третий знак "+ number +" - "+result);
+        }
+        else if (num<100){ 
+        Console.WriteLine("В этом числе нет третьего знака");
+        }
 
-    }
+        }
 
 
 

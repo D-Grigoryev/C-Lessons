@@ -129,7 +129,7 @@ bool validNumber = false;
         for (int x=0; x<fieldSize;x++){
             for (int y=0;y<fieldSize;y++){
                 if (field[x,y].Equals(computerTurn)){
-                    field[x,y]=zero;
+                    field[x,y]= zero;
                     validNumber=true;
                     break;                  
                 }
@@ -222,9 +222,28 @@ bool Validator (char str){
 }
     
 
+// 1. получаем состояние поля
+// 2. делаем ход, если нет победы, делаем ход другого игрока 
+// 3. когда получаем состояние победы делам первый ход который привел к победе
 
-
-       
+    //    char minMax (char t){
+    //         char [,]arr = field.Clone() as char[,];
+    //         string rnd = Convert.ToString(new Random().Next(1,10));
+    //         char turn = Convert.ToChar(rnd);
+    //         for (int x=0; x<fieldSize;x++){
+    //         for (int y=0;y<fieldSize;y++){
+    //             if (!arr[x,y].Equals(turn)){
+    //                 arr[x,y]=zero;
+    //                 if (!CheckGameEnd()){
+    //                     return turn;
+    //                 }else  {
+    //                     minMax(cross);
+    //                 }
+    //                 break;                  
+    //             }
+    //         }
+    //      }return turn;
+    //    }
     
    
 
