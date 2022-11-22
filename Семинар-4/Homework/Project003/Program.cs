@@ -15,7 +15,8 @@ int[] arrayNumbers(int[] arr)
     for (int i = 0; i < arr.Length; i++)
     {
         arr[i] = new Random().Next(0, 100);
-    }return arr;
+    }
+    return arr;
 }
 void printArray(int[] array)
 {

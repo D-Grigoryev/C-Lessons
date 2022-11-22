@@ -24,13 +24,14 @@ Console.WriteLine($"Сумма чисел {number} равна {FindThirdNumber(n
 int FindThirdNumber(int num)
 {
     int result = 0;
-        while (num > 9)
-        {
-            result += num % 10;
-            num = num / 10;
-        }
-        if (num <9){
-             result += num;
-        }
+    while (num > 9)
+    {
+        result += num % 10;
+        num = num / 10;
+    }
+    if (num < 9)
+    {
+        result += num;
+    }
     return result;
 }
