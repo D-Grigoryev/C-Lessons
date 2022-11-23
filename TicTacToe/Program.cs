@@ -309,10 +309,34 @@ void mediumComputerTurn()
                     PrintField();
                    
                 }
+                if (field[0, 1] == cross && field[0, 2] == cross && field[0, 0] != zero)
+                {
+                    field[0, 0] = zero;
+                    PrintField();
+                   
+                }
+                if (field[0, 0] == cross && field[0, 2] == cross && field[0, 1] != zero)
+                {
+                    field[0, 1] = zero;
+                    PrintField();
+                   
+                }
                 //проверка второй горизонтали
                 else if (field[1, 0] == cross && field[1, 1] == cross && field[1, 2] != zero)
                 {
                     field[1, 2] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[1, 1] == cross && field[1, 2] == cross && field[1, 0] != zero)
+                {
+                    field[1, 0] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[1, 0] == cross && field[1, 2] == cross && field[1, 1] != zero)
+                {
+                    field[1, 1] = zero;
                     PrintField();
                    
                 }
@@ -323,10 +347,34 @@ void mediumComputerTurn()
                     PrintField();
                    
                 }
+                else if (field[2, 1] == cross && field[2, 2] == cross && field[2, 0] != zero)
+                {
+                    field[2, 0] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[2, 0] == cross && field[2, 2] == cross && field[2, 1] != zero)
+                {
+                    field[2, 1] = zero;
+                    PrintField();
+                   
+                }
                 //проверка первой вертикали
                 else if (field[0, 0] == cross && field[1, 0] == cross && field[2, 0] != zero)
                 {
                     field[2, 0] = zero;
+                    PrintField();
+                    
+                }
+                else if (field[1, 0] == cross && field[2, 0] == cross && field[0, 0] != zero)
+                {
+                    field[0, 0] = zero;
+                    PrintField();
+                    
+                }
+                else if (field[0, 0] == cross && field[2, 0] == cross && field[1, 0] != zero)
+                {
+                    field[1, 0] = zero;
                     PrintField();
                     
                 }
@@ -337,10 +385,34 @@ void mediumComputerTurn()
                     PrintField();
                    
                 }
+                else if (field[1, 1] == cross && field[2, 1] == cross && field[0, 1] != zero)
+                {
+                    field[0, 1] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[0, 1] == cross && field[2, 1] == cross && field[1, 1] != zero)
+                {
+                    field[1, 1] = zero;
+                    PrintField();
+                   
+                }
                 //проверка третей вертикали
                 else if (field[0, 2] == cross && field[1, 2] == cross && field[2, 2] != zero)
                 {
                     field[2, 2] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[1, 2] == cross && field[2, 2] == cross && field[0, 2] != zero)
+                {
+                    field[0, 2] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[0, 2] == cross && field[2, 2] == cross && field[1, 2] != zero)
+                {
+                    field[1, 2] = zero;
                     PrintField();
                    
                 }
@@ -351,10 +423,32 @@ void mediumComputerTurn()
                     PrintField();
                    
                 }
+                else if (field[1, 2] == cross && field[2, 2] == cross && field[0, 0] != zero)
+                {
+                    field[0, 0] = zero;
+                    PrintField();
+                   
+                }
+                else if (field[0, 0] == cross && field[2, 2] == cross && field[1, 1] != zero)
+                {
+                    field[1, 1] = zero;
+                    PrintField();
+                   
+                }
                 //проверка второй диагонали 
                 else if (field[2, 0] == cross && field[1, 1] == cross && field[0, 2] != zero)
                 {
                     field[0, 2] = zero;
+                    PrintField();
+                }
+                else if (field[1, 1] == cross && field[0, 2] == cross && field[2, 0] != zero)
+                {
+                    field[2, 0] = zero;
+                    PrintField();
+                }
+                else if (field[2, 0] == cross && field[0, 2] == cross && field[1, 1] != zero)
+                {
+                    field[1, 1] = zero;
                     PrintField();
                 }
                 else
