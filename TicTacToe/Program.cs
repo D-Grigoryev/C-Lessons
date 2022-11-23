@@ -43,7 +43,7 @@ while (true)
         else break;
         if (!CheckGameEnd())
         {
-            СomputerTurn();
+            ComputerTurn();
         }
         else break;
     }
@@ -167,7 +167,7 @@ void HumanTurnZero()
     PrintField();
 }
 
-void СomputerTurn()
+void ComputerTurn()
 {
     Console.WriteLine("Ход компьютера");
     string rnd = Convert.ToString(new Random().Next(1, 10));
@@ -189,12 +189,12 @@ void СomputerTurn()
         }
         if (validNumber == false)
         {
-            СomputerTurn();
+            ComputerTurn();
         }
     }
     else
     {
-        СomputerTurn();
+        ComputerTurn();
     }
     PrintField();
 }
@@ -359,7 +359,7 @@ void mediumComputerTurn()
                 }
                 else
                 {
-                    СomputerTurn();
+                    ComputerTurn();
                 }
             }
                
