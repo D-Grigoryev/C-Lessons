@@ -15,7 +15,7 @@ Console.Clear();
 Console.WriteLine("Выберите режим игры 0 - игра с человеком");
 Console.WriteLine("Выберите режим игры 1 - игра с легким компьютером");
 Console.WriteLine("Выберите режим игры 2 - игра со средним компьютером");
-Console.WriteLine("Выберите режим игры 3 - игра со сложным компьютером");
+//Console.WriteLine("Выберите режим игры 3 - игра со сложным компьютером");
 
 gameMode = Convert.ToInt32(Console.ReadLine());
 InitField();
