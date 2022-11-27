@@ -3,6 +3,24 @@
 // 3  -> 11
 // 2  -> 10
 
+
+// Console.WriteLine("Введите число: "); 
+// Console.WriteLine($"Введенное число в двоичной систем равно {convertTenToTwo(Convert.ToInt32(Console.ReadLine()))}");
+
+
+// string convertTenToTwo(int x){
+//     string temp = "";
+//     while(x > 0){
+        
+//         if (x % 2==0){
+//             temp = 0+temp;
+//         } else {
+//             temp = 1+temp;
+//         }
+//         x = x / 2;
+//     }return temp;
+// }
+
 Console.WriteLine("Введите число: "); 
 int x = Convert.ToInt16(Console.ReadLine()); 
  
@@ -39,6 +57,5 @@ string BinNum(int x, int[] array)
     } 
     return num; 
 } 
-
 string number = new string(BinNum(x, array)); 
 Console.WriteLine($"Число {x} в двоичной системе равно {number}");
