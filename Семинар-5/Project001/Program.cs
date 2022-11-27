@@ -19,6 +19,7 @@ minusSumm += ar;
  Console.WriteLine($" сумма отрицательных чисел {minusSumm}");
 Console.WriteLine($" сумма положительных чисел {plusSumm}");
 }
+
 void creatArray (int [] array){
     for (int i = 0; i < array.Length; i++){
         array[i] = new Random().Next(-9, 10);

@@ -17,9 +17,6 @@ foreach(int ar in array){
    Console.WriteLine($"Количество положительных чисел {count}");
 }
  
-
-
-
 void creatArray (int [] array){
     for (int i = 0; i < array.Length; i++){
         array[i] = new Random().Next(100, 1000);

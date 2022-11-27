@@ -12,4 +12,3 @@ int summ (int a){
 } 
 
 
-
