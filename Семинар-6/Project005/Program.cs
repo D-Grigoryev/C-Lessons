@@ -1,7 +1,7 @@
 ﻿// Задача 45: Напишите программу, которая будет создавать 
 // копию заданного массива с помощью поэлементного копирования.
 
-printArr(copyArray(creatArray(10)));
+printArr(copyArray(creatArray(5)));
 
 int [] copyArray(int [] arr){
 Console.Write("Копируем массив: ");

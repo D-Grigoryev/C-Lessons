@@ -18,7 +18,6 @@ int [] creatArray (int [] array){
     return array;
     }
 
-
 int minusSum(int [] array){
     int count = 0;
     foreach(int a in array ){
@@ -26,4 +25,4 @@ int minusSum(int [] array){
     }return count;
 }
 
-
+  
