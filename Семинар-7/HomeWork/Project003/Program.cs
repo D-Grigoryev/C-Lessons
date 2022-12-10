@@ -51,7 +51,7 @@ double[] Average(int[,] ar)
     for (int k = 0; k < avg.Length; k++)
     {
         avg[k] /= ar.GetLength(0);
-       //Console.WriteLine($"Среднеарифмитическое столбца №{k + 1} равно {avg[k]}");
+       
     }
     return avg;
 }
